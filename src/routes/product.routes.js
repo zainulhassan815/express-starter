@@ -6,6 +6,7 @@ import {
   getProduct,
   updateProduct,
 } from "../controllers/product.controller.js";
+import authorize from "../middlewares/auth.middleware.js";
 import { validateRequest } from "../middlewares/validate-request.middleware.js";
 import {
   createProductSchema,
@@ -148,18 +149,19 @@ import {
 
 const router = express.Router();
 
-router.get("/", getAllProducts);
+router.get("/", authorize, getAllProducts);
 
-router.post("/", validateRequest({ body: createProductSchema }), createProduct);
+router.post("/", authorize, validateRequest({ body: createProductSchema }), createProduct);
 
 router.patch(
   "/:id",
+  authorize,
   validateRequest({ params: productIdParamSchema, body: updateProductSchema }),
   updateProduct,
 );
 
-router.get("/:id", validateRequest({ params: productIdParamSchema }), getProduct);
+router.get("/:id", authorize, validateRequest({ params: productIdParamSchema }), getProduct);
 
-router.delete("/:id", validateRequest({ params: productIdParamSchema }), deleteProduct);
+router.delete("/:id", authorize, validateRequest({ params: productIdParamSchema }), deleteProduct);
 
 export default router;

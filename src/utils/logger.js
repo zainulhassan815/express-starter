@@ -1,6 +1,6 @@
 import morgan from "morgan";
 import winston from "winston";
-import appConfig from "../config/env.js";
+import { appConfig } from "../config/env.js";
 
 const { combine, colorize, printf, timestamp, json, errors } = winston.format;
 
@@ -69,7 +69,7 @@ logger.stream = {
   write: (message) => httpLogger.http(message.trim()),
 };
 
-const httpRequestLogger = morgan(
+const httpRequestLoggerMiddleware = morgan(
   (tokens, req, res) =>
     JSON.stringify({
       method: tokens.method(req, res),
@@ -81,5 +81,4 @@ const httpRequestLogger = morgan(
   { stream: logger.stream },
 );
 
-export default logger;
-export { httpRequestLogger };
+export { logger, httpRequestLoggerMiddleware };

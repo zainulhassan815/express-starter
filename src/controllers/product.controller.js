@@ -1,5 +1,5 @@
-import Product from "../models/product.js";
-import logger from "../utils/logger.js";
+import Product from "../models/product.model.js";
+import { logger } from "../utils/logger.js";
 
 export const createProduct = async (req, res) => {
   try {

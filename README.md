@@ -7,11 +7,12 @@ A robust and feature-rich starter template for building RESTful APIs with Expres
 ## Features
 
 - **Framework**: [Express.js](https://expressjs.com/) v5 (beta) for building the API.
+- **Authentication**: Robust authentication using JSON Web Tokens (JWT) with an Access/Refresh token strategy.
+- **Database**: Includes [Mongoose](https://mongoosejs.com/) for MongoDB object data modeling and [Redis](https://redis.io/) for caching and refresh token storage.
 - **Logging**: Comprehensive logging with [Winston](https://github.com/winstonjs/winston) and HTTP request logging with [Morgan](https://github.com/expressjs/morgan).
 - **API Documentation**: Automatic API documentation generation with [Swagger (OpenAPI)](https://swagger.io/) using `swagger-jsdoc` and `swagger-ui-express`.
 - **Security**: Basic security headers set with Helmet.
 - **CORS Ready**: Pre-configured CORS support.
-- **Database**: Includes Mongoose for MongoDB object data modeling.
 - **Validation**: Request validation with [Zod](https://zod.dev/).
 - **Code Quality**: Linting and formatting enforced by Biome.
 - **Git Hooks**: Pre-commit hooks with Husky and lint-staged to ensure code standards.
@@ -23,6 +24,7 @@ A robust and feature-rich starter template for building RESTful APIs with Expres
 - Node.js (v18 or higher recommended)
 - npm or any other package manager
 - MongoDB instance (local or remote)
+- Redis instance (local or remote)
 
 ## Getting Started
 
