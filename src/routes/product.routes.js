@@ -11,7 +11,7 @@ import {
   createProductSchema,
   productIdParamSchema,
   updateProductSchema,
-} from "../validations/product.schema.js";
+} from "../schemas/product.schema.js";
 
 /**
  * @swagger
