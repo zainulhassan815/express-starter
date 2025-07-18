@@ -5,9 +5,9 @@ const options = {
   definition: {
     openapi: "3.1.0",
     info: {
-      title: "Clothing Store API",
+      title: "Express Starter Template",
       version: "1.0.0",
-      description: "API documentation for your personal clothing store backend",
+      description: "API documentation",
     },
     servers: [
       {

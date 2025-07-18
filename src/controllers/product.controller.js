@@ -1,9 +1,9 @@
-import Product from "../models/product.js";
-import logger from "../utils/logger.js";
+import { ProductModel } from "../models/product.model.js";
+import { logger } from "../utils/logger.js";
 
 export const createProduct = async (req, res) => {
   try {
-    const product = await Product.create(req.body);
+    const product = await ProductModel.create(req.body);
     logger.info("Product created", { product });
     res.status(201).json(product);
   } catch (err) {
@@ -14,7 +14,7 @@ export const createProduct = async (req, res) => {
 
 export const getAllProducts = async (_req, res) => {
   try {
-    const products = await Product.find();
+    const products = await ProductModel.find();
     res.json(products);
   } catch (err) {
     logger.error("Fetch products failed", err);
@@ -24,7 +24,7 @@ export const getAllProducts = async (_req, res) => {
 
 export const getProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await ProductModel.findById(req.params.id);
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
     }
@@ -37,7 +37,7 @@ export const getProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+    const product = await ProductModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
@@ -54,7 +54,7 @@ export const updateProduct = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
   try {
-    const product = await Product.findByIdAndDelete(req.params.id);
+    const product = await ProductModel.findByIdAndDelete(req.params.id);
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
     }
