@@ -69,7 +69,7 @@ logger.stream = {
   write: (message) => httpLogger.http(message.trim()),
 };
 
-const httpRequestLogger = morgan(
+const httpRequestLoggerMiddleware = morgan(
   (tokens, req, res) =>
     JSON.stringify({
       method: tokens.method(req, res),
@@ -81,4 +81,4 @@ const httpRequestLogger = morgan(
   { stream: logger.stream },
 );
 
-export { logger, httpRequestLogger };
+export { logger, httpRequestLoggerMiddleware };

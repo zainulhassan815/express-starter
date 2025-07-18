@@ -2,8 +2,8 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import { swaggerSpec, swaggerUi } from "./config/swagger.js";
-import productRoutes from "./routes/product.routes.js";
-import { httpRequestLogger } from "./utils/logger.js";
+import indexRouter from "./routes";
+import { httpRequestLoggerMiddleware } from "./utils/logger.js";
 
 const app = express();
 
@@ -13,10 +13,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(httpRequestLogger);
+app.use(httpRequestLoggerMiddleware);
 
-// Register api routes
-app.use("/api/products", productRoutes);
+app.use("/api", indexRouter);
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
