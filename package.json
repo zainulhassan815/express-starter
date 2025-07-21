@@ -30,10 +30,5 @@
     "@biomejs/biome": "2.0.6",
     "husky": "^9.1.7",
     "nodemon": "^3.1.10"
-  },
-  "lint-staged": {
-    "*": [
-      "npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true"
-    ]
   }
 }
