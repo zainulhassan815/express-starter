@@ -1,1 +1,13 @@
+# 1. Check for secrets with gitleaks
+echo "🔐 Checking for secrets using GitLeaks..."
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "⚠️ GitLeaks is not installed. Skipping secret scan."
+  echo "👉 Install it from https://github.com/gitleaks/gitleaks"
+else
+  gitleaks git --staged --no-banner --redact --verbose
+fi
+
+# 2. Run linter/formatter
+echo "🧹 Running Biome formatting check..."
 npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true
