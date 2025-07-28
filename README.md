@@ -1,6 +1,7 @@
 # Express Starter JS
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![gitleaks badge](https://img.shields.io/badge/protected%20by-gitleaks-blue)
 
 A robust and feature-rich starter template for building RESTful APIs with Express.js. This project is configured with modern tools for logging, documentation, code quality, and security.
 
